@@ -1,0 +1,77 @@
+{
+  "entities": {
+    "CustomImage": {
+      "title": "CustomImage",
+      "description": "Customized product or site banner image mapping",
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "Identifier key for the product or banner"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL or storage path to the image asset"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp of last update"
+        }
+      },
+      "required": ["key", "url", "updatedAt"]
+    },
+    "Quote": {
+      "title": "Quote",
+      "description": "Customer quotation and product specification requests",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Customer contact name"
+        },
+        "company": {
+          "type": "string",
+          "description": "Customer company or trade name"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Customer contact email"
+        },
+        "whatsapp": {
+          "type": "string",
+          "description": "Customer WhatsApp phone number"
+        },
+        "segment": {
+          "type": "string",
+          "description": "Business segment (e.g. Padaria, Hamburgueria, etc.)"
+        },
+        "selectedProducts": {
+          "type": "array",
+          "description": "List of selected product IDs"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional customer notes"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp of creation"
+        }
+      },
+      "required": ["name", "email", "whatsapp", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/custom_images/{imageId}": {
+      "schema": "CustomImage",
+      "description": "Collection of custom image mappings for products and banners"
+    },
+    "/quotes/{quoteId}": {
+      "schema": "Quote",
+      "description": "Collection of submitted customer quotes"
+    }
+  }
+}

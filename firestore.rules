@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Custom images collections: publicly readable and writable for catalog photo management
+    match /custom_images/{imageId} {
+      allow read, write: if true;
+    }
+    
+    match /customImages/{imageId} {
+      allow read, write: if true;
+    }
+
+    match /images/{imageId} {
+      allow read, write: if true;
+    }
+
+    match /products/{productId} {
+      allow read, write: if true;
+    }
+
+    // Quotes collection: visitors can submit quote requests
+    match /quotes/{quoteId} {
+      allow read, write: if true;
+    }
+
+    // General fallback
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+

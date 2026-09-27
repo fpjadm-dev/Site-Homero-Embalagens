@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..900;1,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Pacifico&family=Lobster&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-logo: "Magneto", "Brush Script MT", "Lobster", "Pacifico", cursive;
+  
+  --color-brand-orange: #7b8735; /* Olive green brand primary from leaf */
+  --color-brand-orange-hover: #5d6728; /* Slightly darker olive green hover */
+  --color-brand-dark: #353d16; /* Deep organic olive green */
+  --color-brand-dark-card: #22290a; /* Deep forest/olive Card */
+  --color-brand-light-bg: #f9faf4; /* Elegant warm ivory background */
+  --color-brand-light-card: #ffffff; /* White card */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: #111111;
+}
+
+/* Animations helper classes if needed */
+.transition-all-custom {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom thin scrollbar for specifications table */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(53, 61, 22, 0.2);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(53, 61, 22, 0.4);
+}
+
+/* ==========================================
+   OFFICIAL CATALOG PRINT STYLING
+   ========================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+  
+  html, body {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    font-size: 10pt !important;
+    line-height: 1.35 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Force page breaks */
+  .print-page-break,
+  .page-break-before {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  .print-page-break-after,
+  .page-break-after {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  /* Avoid breaking inside components, subcategories, subgroup cards, and tables */
+  .break-inside-avoid,
+  .page-break-inside-avoid,
+  .avoid-break-inside {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .break-after-avoid,
+  .page-break-after-avoid {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .break-before-avoid {
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+  }
+
+  /* Prevent headings from being orphaned at the bottom of a page */
+  h1, h2, h3, h4, h5, h6,
+  .prevent-orphan {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Keep table rows and headers intact */
+  table {
+    page-break-inside: auto;
+  }
+
+  tr, th, td {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Force background colors and images to print properly in browsers */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+

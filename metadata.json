@@ -1,0 +1,6 @@
+{
+  "name": "Homero Embalagens",
+  "description": "Landing page institucional de alta performance para a Homero Embalagens, especializada em soluções B2B com catálogo de produtos completo, diferenciais industriais e formulário de orçamento dinâmico.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
